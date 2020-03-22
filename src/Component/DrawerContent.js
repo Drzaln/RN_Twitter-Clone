@@ -28,7 +28,8 @@ const DrawerContent = (props) => {
 								uri:
 									'https://scontent-iad3-1.cdninstagram.com/v/t51.2885-19/75098631_482550472362353_3585708749064503296_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_ohc=wQ6B8mUBiS8AX9-pNgu&oh=dc684c8f46badfa56a5c8698b621cc07&oe=5EA99902'
 							}}
-							size={50}
+							size={80}
+							theme={{ colors: { primary: 'white' } }}
 						/>
 					</TouchableOpacity>
 					<Title style={styles.title}>Doddy Rizal N</Title>

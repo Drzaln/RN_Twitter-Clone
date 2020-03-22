@@ -8,7 +8,7 @@ import { BottomTabs } from './Component/BottomTabs'
 
 const Stack = createStackNavigator()
 
-const StackNavigator = () => {
+const StackNavigator = (props) => {
 	const theme = useTheme()
 
 	return (
@@ -37,6 +37,7 @@ const StackNavigator = () => {
 											uri:
 												'https://scontent-iad3-1.cdninstagram.com/v/t51.2885-19/75098631_482550472362353_3585708749064503296_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_ohc=wQ6B8mUBiS8AX9-pNgu&oh=dc684c8f46badfa56a5c8698b621cc07&oe=5EA99902'
 										}}
+										theme={{ colors: { primary: 'white' } }}
 									/>
 								</TouchableOpacity>
 							)}
@@ -51,9 +52,8 @@ const StackNavigator = () => {
 								titleStyle={{
 									fontSize: 18,
 									fontWeight: 'bold',
-									color: '#55acee'
+									color: title !== 'Feed' ? 'black' : '#55acee'
 								}}
-								style={{ marginLeft: 24 }}
 							/>
 						</Appbar.Header>
 					)
@@ -64,7 +64,6 @@ const StackNavigator = () => {
 				name='FeedList'
 				component={BottomTabs}
 				options={({ route }) => {
-					console.log('!@# options', { route })
 					const routeName = route.state ? route.state.routes[route.state.index].name : 'Feed'
 					return { headerTitle: routeName }
 				}}
