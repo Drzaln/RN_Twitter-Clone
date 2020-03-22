@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/Feather'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
-import { useTheme, Avatar, Title, Caption, Paragraph, Drawer } from 'react-native-paper'
+import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper'
 import Animated from 'react-native-reanimated'
 
 const DrawerContent = (props) => {
@@ -31,16 +31,8 @@ const DrawerContent = (props) => {
 							size={50}
 						/>
 					</TouchableOpacity>
-					<Title
-						style={styles.title}
-					>
-						Doddy Rizal N
-					</Title>
-					<Caption
-						style={styles.caption}
-					>
-						@drzaln
-					</Caption>
+					<Title style={styles.title}>Doddy Rizal N</Title>
+					<Caption style={styles.caption}>@drzaln</Caption>
 					<View style={styles.row}>
 						<View style={styles.section}>
 							<Paragraph style={[ styles.paragraph, styles.caption ]}>1</Paragraph>
@@ -52,29 +44,37 @@ const DrawerContent = (props) => {
 						</View>
 					</View>
 				</View>
-                <Drawer.Section>
-                    <DrawerItem
-                        icon={({color, size}) => (
-                            <Icon name='account-outline' color={color} size={size} />
-                        )}
-                        label='Profile'
-                        onPress={() => {}}
-                    />
-                    <DrawerItem
-                        icon={({color, size}) => (
-                            <Icon name='settings-outline' color={color} size={size} />
-                        )}
-                        label='Preferences'
-                        onPress={() => {}}
-                    />
-                    <DrawerItem
-                        icon={({color, size}) => (
-                            <Icon name='bookmark-outline' color={color} size={size} />
-                        )}
-                        label='Bookmarks'
-                        onPress={() => {}}
-                    />
-                </Drawer.Section>
+				<Drawer.Section>
+					<DrawerItem
+						icon={({ color, size }) => <Icon name='user' color={color} size={size} />}
+						label='Profile'
+						onPress={() => {}}
+					/>
+					<DrawerItem
+						icon={({ color, size }) => <Icon name='bookmark' color={color} size={size} />}
+						label='Bookmarks'
+						onPress={() => {}}
+					/>
+					<DrawerItem
+						icon={({ color, size }) => <Icon name='zap' color={color} size={size} />}
+						label='Moments'
+						onPress={() => {}}
+					/>
+				</Drawer.Section>
+				<Drawer.Section>
+					<DrawerItem label='Settings and Privacy' onPress={() => {}} />
+					<DrawerItem label='Help Center' onPress={() => {}} />
+				</Drawer.Section>
+				<Drawer.Section title='Preferences'>
+					<TouchableRipple onPress={() => {}}>
+						<View style={styles.preference}>
+							<Text>Dark Theme</Text>
+							<View pointerEvents='none'>
+								<Switch value={null} />
+							</View>
+						</View>
+					</TouchableRipple>
+				</Drawer.Section>
 			</Animated.View>
 		</DrawerContentScrollView>
 	)
